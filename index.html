@@ -7,27 +7,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Great+Vibes&display=swap" rel="stylesheet"/>
 <style>
   :root {
-    --rose:    #c0405a;
-    --gold:    #c9954a;
-    --cream:   #fdf6ee;
-    --dark:    #1a0a10;
-    --blush:   #f5d5db;
-    --wine:    #6b1a2a;
+    --rose:  #c0405a;
+    --gold:  #c9954a;
+    --cream: #fdf6ee;
+    --dark:  #1a0a10;
+    --blush: #f5d5db;
+    --wine:  #6b1a2a;
   }
-
+ 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
+ 
   body {
     font-family: 'Cormorant Garamond', serif;
     background: var(--dark);
     color: var(--cream);
     overflow-x: hidden;
-    cursor: default;
   }
-
-  /* ── NAVIGATION ── */
+ 
+  /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
     display: flex; justify-content: center; gap: 2rem;
@@ -48,39 +46,35 @@
   }
   nav button:hover, nav button.active { color: var(--gold); }
   nav button:hover::after, nav button.active::after { width: 100%; }
-
+ 
   /* ── PAGES ── */
   .page {
     min-height: 100vh; display: none;
     flex-direction: column; align-items: center; justify-content: center;
-    padding: 90px 1.5rem 60px;
+    padding: 90px 1.5rem 70px;
     position: relative; overflow: hidden;
   }
   .page.active { display: flex; }
-
-  /* ══════════════════════════════════════
-     PAGE 1 — HERO
-  ══════════════════════════════════════ */
+ 
+  /* ══ PAGE 1 — HERO ══ */
   #page1 {
     background:
       radial-gradient(ellipse at 30% 20%, rgba(192,64,90,.25) 0%, transparent 55%),
-      radial-gradient(ellipse at 75% 80%, rgba(107,26,42,.3) 0%, transparent 55%),
-      radial-gradient(ellipse at 50% 50%, rgba(201,149,74,.08) 0%, transparent 70%),
+      radial-gradient(ellipse at 75% 80%, rgba(107,26,42,.3)  0%, transparent 55%),
+      radial-gradient(ellipse at 50% 50%, rgba(201,149,74,.08)0%, transparent 70%),
       linear-gradient(160deg, #1a0a10 0%, #2d0d1b 60%, #1a0a10 100%);
   }
-
-  /* floating petals */
+ 
   .petal {
     position: absolute; pointer-events: none;
     font-size: clamp(10px, 2vw, 22px);
-    animation: floatUp linear infinite;
-    opacity: .6;
+    animation: floatUp linear infinite; opacity: .6;
   }
   @keyframes floatUp {
     0%   { transform: translateY(105vh) rotate(0deg);   opacity: .7; }
-    100% { transform: translateY(-10vh)  rotate(360deg); opacity: 0;  }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0;  }
   }
-
+ 
   .hero-ornament {
     font-size: clamp(1.8rem, 6vw, 4.5rem);
     color: var(--gold); opacity: .5; letter-spacing: .3em;
@@ -88,323 +82,215 @@
   }
   .hero-title {
     font-family: 'Great Vibes', cursive;
-    font-size: clamp(3.5rem, 12vw, 9rem);
-    line-height: 1.05;
+    font-size: clamp(3.5rem, 12vw, 9rem); line-height: 1.05;
     background: linear-gradient(135deg, var(--gold) 0%, #e8c070 50%, var(--gold) 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: fadeSlideDown 1.2s .2s ease both;
-    text-align: center;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    animation: fadeSlideDown 1.2s .2s ease both; text-align: center;
   }
   .hero-names {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.2rem, 4vw, 2.6rem);
-    letter-spacing: .25em;
-    color: var(--blush);
-    text-align: center;
-    margin: .4rem 0 1.2rem;
+    font-size: clamp(1.2rem, 4vw, 2.6rem); letter-spacing: .25em;
+    color: var(--blush); text-align: center; margin: .4rem 0 1.2rem;
     animation: fadeSlideDown 1.2s .4s ease both;
   }
   .hero-date {
-    font-size: clamp(.9rem, 2vw, 1.15rem);
-    letter-spacing: .35em; text-transform: uppercase;
-    color: var(--gold); opacity: .8;
-    animation: fadeSlideDown 1.2s .6s ease both;
+    font-size: clamp(.9rem, 2vw, 1.15rem); letter-spacing: .35em; text-transform: uppercase;
+    color: var(--gold); opacity: .8; animation: fadeSlideDown 1.2s .6s ease both;
   }
-
   .divider {
-    display: flex; align-items: center; gap: 1rem;
-    margin: 1.8rem 0;
+    display: flex; align-items: center; gap: 1rem; margin: 1.8rem 0;
     animation: fadeSlideDown 1.2s .8s ease both;
   }
-  .divider-line { width: clamp(60px, 12vw, 140px); height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+  .divider-line { width: clamp(60px,12vw,140px); height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
   .divider-line.right { background: linear-gradient(270deg, transparent, var(--gold)); }
   .divider span { color: var(--gold); font-size: 1.4rem; }
-
   .hero-verse {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(1rem, 2.5vw, 1.4rem);
-    color: var(--blush); opacity: .85;
-    max-width: 520px; text-align: center; line-height: 1.8;
-    animation: fadeSlideDown 1.2s 1s ease both;
+    font-style: italic; font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: var(--blush); opacity: .85; max-width: 520px;
+    text-align: center; line-height: 1.8; animation: fadeSlideDown 1.2s 1s ease both;
   }
-
+  @keyframes fadeSlideDown {
+    from { opacity: 0; transform: translateY(-28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
   .btn-nav {
-    margin-top: 2.8rem;
-    padding: .85rem 3rem;
-    background: transparent;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem; letter-spacing: .25em; text-transform: uppercase;
-    cursor: pointer;
-    position: relative; overflow: hidden;
-    transition: color .35s;
+    margin-top: 2.8rem; padding: .85rem 3rem;
+    background: transparent; border: 1px solid var(--gold); color: var(--gold);
+    font-family: 'Cormorant Garamond', serif; font-size: 1rem;
+    letter-spacing: .25em; text-transform: uppercase; cursor: pointer;
+    position: relative; overflow: hidden; transition: color .35s;
     animation: fadeSlideDown 1.2s 1.2s ease both;
   }
   .btn-nav::before {
     content: ''; position: absolute; inset: 0;
-    background: var(--gold); transform: scaleX(0); transform-origin: left;
-    transition: transform .35s ease;
+    background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .35s ease;
   }
   .btn-nav:hover::before { transform: scaleX(1); }
   .btn-nav:hover { color: var(--dark); }
   .btn-nav span { position: relative; z-index: 1; }
-
-  @keyframes fadeSlideDown {
-    from { opacity: 0; transform: translateY(-28px); }
-    to   { opacity: 1; transform: translateY(0);    }
-  }
-
-  /* ══════════════════════════════════════
-     PAGE 2 — MEMORIES / PHOTOS
-  ══════════════════════════════════════ */
+ 
+  /* ══ PAGE 2 — MEMORIES ══ */
   #page2 {
     background:
       radial-gradient(ellipse at 80% 10%, rgba(201,149,74,.15) 0%, transparent 50%),
       linear-gradient(170deg, #1e0b12 0%, #2a1020 100%);
   }
-
   .section-label {
     font-size: .78rem; letter-spacing: .5em; text-transform: uppercase;
-    color: var(--gold); opacity: .7; margin-bottom: .6rem;
+    color: var(--gold); opacity: .7; margin-bottom: .6rem; text-align: center;
   }
   .section-title {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(2.8rem, 9vw, 6rem);
+    font-family: 'Great Vibes', cursive; font-size: clamp(2.8rem, 9vw, 6rem);
     background: linear-gradient(135deg, var(--gold), #e8c070, var(--gold));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     text-align: center; line-height: 1.1; margin-bottom: 1rem;
   }
   .section-sub {
     font-style: italic; font-size: 1.05rem;
-    color: var(--blush); opacity: .75; text-align: center;
-    margin-bottom: 2.5rem;
+    color: var(--blush); opacity: .75; text-align: center; margin-bottom: 2.5rem;
   }
-
+ 
   /* photo grid */
   .photo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.2rem;
-    width: 100%; max-width: 860px;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem; width: 100%; max-width: 860px;
   }
-
-  .photo-slot {
-    aspect-ratio: 1;
-    border: 1px dashed rgba(201,149,74,.45);
-    border-radius: 6px;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    cursor: pointer;
-    background: rgba(255,255,255,.03);
-    transition: border-color .3s, background .3s, transform .3s;
-    overflow: hidden; position: relative;
+  .photo-frame {
+    aspect-ratio: 1; border-radius: 8px; overflow: hidden; position: relative;
+    border: 1px solid rgba(201,149,74,.3); box-shadow: 0 8px 32px rgba(0,0,0,.4);
+    transition: transform .35s, box-shadow .35s; background: rgba(255,255,255,.04);
   }
-  .photo-slot:hover { border-color: var(--gold); background: rgba(201,149,74,.07); transform: scale(1.03); }
-  .photo-slot img {
-    width: 100%; height: 100%; object-fit: cover;
-    border-radius: 6px;
+  .photo-frame:hover { transform: scale(1.04) translateY(-4px); box-shadow: 0 16px 40px rgba(192,64,90,.3); }
+  .photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s; }
+  .photo-frame:hover img { transform: scale(1.07); }
+  .photo-frame::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(201,149,74,.18) 0%, transparent 60%);
+    opacity: 0; transition: opacity .35s;
   }
-  .photo-slot .add-icon { font-size: 2rem; color: var(--gold); opacity: .5; margin-bottom: .4rem; }
-  .photo-slot .add-text { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); opacity: .5; }
-  .photo-slot .remove-btn {
-    position: absolute; top: 6px; right: 8px;
-    background: rgba(26,10,16,.75); border: none; color: var(--rose);
-    font-size: 1rem; cursor: pointer; border-radius: 50%; width: 26px; height: 26px;
-    display: none; align-items: center; justify-content: center;
-    transition: background .2s;
+  .photo-frame:hover::after { opacity: 1; }
+  .photo-caption-tag {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: .55rem .8rem;
+    background: linear-gradient(to top, rgba(26,10,16,.85), transparent);
+    font-style: italic; font-size: .82rem; color: var(--blush);
+    letter-spacing: .05em; opacity: 0; transition: opacity .35s; text-align: center;
+    z-index: 2;
   }
-  .photo-slot:hover .remove-btn { display: flex; }
-
-  /* caption */
-  .photo-caption {
-    margin-top: 2rem;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1.05rem;
-    color: var(--blush); opacity: .7;
-    text-align: center; letter-spacing: .05em;
+  .photo-frame:hover .photo-caption-tag { opacity: 1; }
+ 
+  /* placeholder shown when image fails to load */
+  .img-placeholder {
+    display: none; width: 100%; height: 100%;
+    flex-direction: column; align-items: center; justify-content: center;
+    color: var(--gold); opacity: .35; font-size: .72rem;
+    letter-spacing: .1em; text-transform: uppercase; gap: .4rem; text-align: center;
   }
-
-  /* ══════════════════════════════════════
-     PAGE 3 — MUSIC & LOVE MESSAGE
-  ══════════════════════════════════════ */
+  .img-placeholder span { font-size: 2rem; }
+ 
+  .photo-bottom-caption {
+    margin-top: 2rem; font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 1.05rem; color: var(--blush); opacity: .7; text-align: center; letter-spacing: .05em;
+  }
+ 
+  /* ══ PAGE 3 — SONG & LETTER ══ */
   #page3 {
     background:
-      radial-gradient(ellipse at 20% 80%, rgba(192,64,90,.2) 0%, transparent 50%),
+      radial-gradient(ellipse at 20% 80%, rgba(192,64,90,.2)  0%, transparent 50%),
       radial-gradient(ellipse at 80% 20%, rgba(107,26,42,.25) 0%, transparent 50%),
       linear-gradient(155deg, #1a0a10 0%, #2d0d1b 100%);
   }
-
   .love-card {
     max-width: 680px; width: 100%;
-    background: rgba(255,255,255,.04);
-    border: 1px solid rgba(201,149,74,.2);
-    border-radius: 12px;
-    padding: clamp(1.8rem, 5vw, 3.5rem);
-    text-align: center;
-    backdrop-filter: blur(8px);
-    position: relative;
+    background: rgba(255,255,255,.04); border: 1px solid rgba(201,149,74,.2);
+    border-radius: 12px; padding: clamp(1.8rem,5vw,3.5rem);
+    text-align: center; backdrop-filter: blur(8px); position: relative;
   }
   .love-card::before {
-    content: '❝';
-    position: absolute; top: -1.5rem; left: 50%; transform: translateX(-50%);
-    font-size: 4rem; color: var(--gold); opacity: .25;
-    font-family: 'Playfair Display', serif;
+    content: '❝'; position: absolute; top: -1.5rem; left: 50%; transform: translateX(-50%);
+    font-size: 4rem; color: var(--gold); opacity: .25; font-family: 'Playfair Display', serif;
   }
-
-  .love-message {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-    line-height: 1.9;
-    color: var(--blush);
-  }
+  .love-message { font-style: italic; font-size: clamp(1.1rem,2.5vw,1.4rem); line-height: 1.9; color: var(--blush); }
   .love-message strong { color: var(--gold); font-style: normal; font-weight: 600; }
-
+ 
   /* music player */
   .music-wrap {
     margin-top: 2.8rem; width: 100%; max-width: 460px;
-    background: rgba(255,255,255,.05);
-    border: 1px solid rgba(201,149,74,.2);
-    border-radius: 10px;
-    padding: 1.4rem 1.8rem;
+    background: rgba(255,255,255,.05); border: 1px solid rgba(201,149,74,.2);
+    border-radius: 10px; padding: 1.4rem 1.8rem;
   }
   .music-title {
-    font-family: 'Playfair Display', serif;
-    font-size: .78rem; letter-spacing: .4em; text-transform: uppercase;
+    font-family: 'Playfair Display', serif; font-size: .78rem;
+    letter-spacing: .4em; text-transform: uppercase;
     color: var(--gold); margin-bottom: 1rem; text-align: center;
   }
   .music-controls { display: flex; align-items: center; gap: 1rem; }
   .play-btn {
     width: 50px; height: 50px; border-radius: 50%;
     background: linear-gradient(135deg, var(--rose), var(--wine));
-    border: none; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.2rem; color: #fff;
-    transition: transform .2s, box-shadow .2s; flex-shrink: 0;
-    box-shadow: 0 4px 18px rgba(192,64,90,.4);
+    border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; color: #fff; flex-shrink: 0;
+    transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 18px rgba(192,64,90,.4);
   }
   .play-btn:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(192,64,90,.55); }
   .music-info { flex: 1; min-width: 0; }
-  .music-name {
-    font-size: .95rem; color: var(--blush);
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    margin-bottom: .3rem;
-  }
+  .music-name { font-size: .95rem; color: var(--blush); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: .3rem; }
   .music-progress { width: 100%; height: 4px; background: rgba(255,255,255,.1); border-radius: 99px; overflow: hidden; }
-  .music-bar {
-    height: 100%; width: 0%;
-    background: linear-gradient(90deg, var(--rose), var(--gold));
-    border-radius: 99px; transition: width .5s linear;
-  }
+  .music-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--rose), var(--gold)); border-radius: 99px; transition: width .5s linear; }
   .music-time { font-size: .75rem; color: var(--gold); opacity: .6; margin-top: .3rem; }
-
-  .upload-song-label {
-    display: inline-flex; align-items: center; gap: .5rem;
-    margin-top: .9rem;
-    font-size: .78rem; letter-spacing: .18em; text-transform: uppercase;
-    color: var(--gold); opacity: .55; cursor: pointer; transition: opacity .2s;
-  }
-  .upload-song-label:hover { opacity: 1; }
-
-  /* ── SURPRISE BUTTON ── */
+ 
+  /* surprise */
   .surprise-wrap { margin-top: 3rem; text-align: center; }
-  .surprise-hint {
-    font-size: .78rem; letter-spacing: .35em; text-transform: uppercase;
-    color: var(--gold); opacity: .5; margin-bottom: .9rem;
-  }
+  .surprise-hint { font-size: .78rem; letter-spacing: .35em; text-transform: uppercase; color: var(--gold); opacity: .5; margin-bottom: .9rem; }
   .surprise-btn {
     padding: 1rem 3.5rem;
     background: linear-gradient(135deg, var(--rose), var(--wine));
     border: none; border-radius: 99px;
-    font-family: 'Great Vibes', cursive;
-    font-size: 1.9rem; color: #fff;
-    cursor: pointer;
-    box-shadow: 0 6px 28px rgba(192,64,90,.45);
-    transition: transform .25s, box-shadow .25s;
-    letter-spacing: .03em;
+    font-family: 'Great Vibes', cursive; font-size: 1.9rem; color: #fff; cursor: pointer;
+    box-shadow: 0 6px 28px rgba(192,64,90,.45); transition: transform .25s, box-shadow .25s;
   }
   .surprise-btn:hover { transform: scale(1.06) translateY(-3px); box-shadow: 0 12px 36px rgba(192,64,90,.6); }
   .surprise-btn:active { transform: scale(.97); }
-
-  /* ── CONFETTI CANVAS ── */
-  #confetti-canvas {
-    position: fixed; inset: 0; pointer-events: none; z-index: 9999;
-  }
-
-  /* ── SURPRISE OVERLAY ── */
+ 
+  #confetti-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 9999; }
+ 
   .overlay {
     display: none; position: fixed; inset: 0; z-index: 9000;
-    background: rgba(26,10,16,.92);
-    backdrop-filter: blur(10px);
+    background: rgba(26,10,16,.92); backdrop-filter: blur(10px);
     align-items: center; justify-content: center;
-    flex-direction: column; text-align: center;
-    padding: 2rem;
-    animation: overlayIn .4s ease both;
+    flex-direction: column; text-align: center; padding: 2rem;
   }
-  .overlay.open { display: flex; }
-  @keyframes overlayIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-  .overlay-heart {
-    font-size: clamp(4rem, 15vw, 8rem);
-    animation: heartBeat 1.2s ease infinite;
-  }
+  .overlay.open { display: flex; animation: overlayIn .4s ease both; }
+  @keyframes overlayIn { from { opacity: 0; } to { opacity: 1; } }
+  .overlay-heart { font-size: clamp(4rem,15vw,8rem); animation: heartBeat 1.2s ease infinite; }
   @keyframes heartBeat {
-    0%,100% { transform: scale(1); }
-    14%      { transform: scale(1.18); }
-    28%      { transform: scale(1); }
-    42%      { transform: scale(1.12); }
-    56%      { transform: scale(1); }
+    0%,100% { transform: scale(1); } 14% { transform: scale(1.18); }
+    28% { transform: scale(1); } 42% { transform: scale(1.12); } 56% { transform: scale(1); }
   }
   .overlay-msg {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(2.5rem, 9vw, 6rem);
+    font-family: 'Great Vibes', cursive; font-size: clamp(2.5rem,9vw,6rem);
     background: linear-gradient(135deg, var(--gold), #e8c070, var(--rose));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     margin: 1rem 0 .5rem;
   }
-  .overlay-sub {
-    font-style: italic; font-size: clamp(1rem, 3vw, 1.5rem);
-    color: var(--blush); opacity: .8; max-width: 500px; line-height: 1.7;
-  }
+  .overlay-sub { font-style: italic; font-size: clamp(1rem,3vw,1.5rem); color: var(--blush); opacity: .8; max-width: 500px; line-height: 1.7; }
   .overlay-close {
-    margin-top: 2rem;
-    padding: .7rem 2.5rem;
-    background: transparent;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: .95rem; letter-spacing: .22em; text-transform: uppercase;
-    cursor: pointer; transition: background .3s, color .3s;
+    margin-top: 2rem; padding: .7rem 2.5rem;
+    background: transparent; border: 1px solid var(--gold); color: var(--gold);
+    font-family: 'Cormorant Garamond', serif; font-size: .95rem;
+    letter-spacing: .22em; text-transform: uppercase; cursor: pointer; transition: background .3s, color .3s;
   }
   .overlay-close:hover { background: var(--gold); color: var(--dark); }
-
-  /* ── FOOTER ── */
+ 
   footer {
-    text-align: center;
-    padding: 1.4rem;
-    font-size: .78rem; letter-spacing: .2em; text-transform: uppercase;
-    color: var(--gold); opacity: .35;
-    position: fixed; bottom: 0; left: 0; right: 0;
-    pointer-events: none;
+    text-align: center; padding: 1.4rem; font-size: .78rem;
+    letter-spacing: .2em; text-transform: uppercase; color: var(--gold); opacity: .35;
+    position: fixed; bottom: 0; left: 0; right: 0; pointer-events: none;
   }
-
-  /* ── HIDDEN FILE INPUTS ── */
-  .hidden-input { display: none; }
-
-  /* ── SCROLLBAR ── */
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 99px; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 500px) {
+ 
+  @media (max-width: 600px) {
     .photo-grid { grid-template-columns: repeat(2, 1fr); }
     nav { gap: 1rem; padding: .9rem 1rem; }
     nav button { font-size: .78rem; }
@@ -412,69 +298,102 @@
 </style>
 </head>
 <body>
-
-<!-- NAV -->
+ 
 <nav>
   <button class="active" onclick="showPage(1,this)">Home</button>
   <button onclick="showPage(2,this)">Memories</button>
   <button onclick="showPage(3,this)">Our Song</button>
 </nav>
-
-<!-- CONFETTI -->
+ 
 <canvas id="confetti-canvas"></canvas>
-
-<!-- ═══════════════════ PAGE 1 ═══════════════════ -->
+ 
+<!-- ═══ PAGE 1 ═══ -->
 <section id="page1" class="page active">
-  <!-- petals injected by JS -->
-
   <div class="hero-ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
-
   <h1 class="hero-title">Happy Anniversary</h1>
-
   <p class="hero-names">Maa &nbsp;❤️&nbsp; Papa</p>
-  <p class="hero-date" id="anni-date">— Together Forever —</p>
-
+  <p class="hero-date">— Together Forever —</p>
   <div class="divider">
-    <div class="divider-line"></div>
-    <span>❧</span>
-    <div class="divider-line right"></div>
+    <div class="divider-line"></div><span>❧</span><div class="divider-line right"></div>
   </div>
-
   <p class="hero-verse">
     "Two souls, one heart — every year spent together<br>
     has been a blessing painted with love."
   </p>
-
   <button class="btn-nav" onclick="showPage(2, document.querySelectorAll('nav button')[1])">
     <span>See Our Story &nbsp;→</span>
   </button>
 </section>
-
-<!-- ═══════════════════ PAGE 2 ═══════════════════ -->
+ 
+<!-- ═══ PAGE 2 ═══ -->
 <section id="page2" class="page">
-
   <p class="section-label">Our Beautiful Journey</p>
   <h2 class="section-title">Cherished Memories</h2>
-  <p class="section-sub">Click any frame to add a precious photo ✨</p>
-
-  <div class="photo-grid" id="photoGrid">
-    <!-- slots injected by JS -->
+  <p class="section-sub">A lifetime of love, captured in frames 🌹</p>
+ 
+  <div class="photo-grid">
+ 
+    <!--
+    ╔══════════════════════════════════════════════════════════════╗
+    ║  HOW TO USE YOUR GITHUB PHOTOS                              ║
+    ║  1. Upload photos to your GitHub repo                       ║
+    ║  2. Open image → click "Raw" → copy URL                     ║
+    ║  3. Paste the raw URL into src="..." below                  ║
+    ║  Raw URL format:                                            ║
+    ║  https://raw.githubusercontent.com/USER/REPO/main/FILE.jpg  ║
+    ╚══════════════════════════════════════════════════════════════╝
+    -->
+ 
+    <div class="photo-frame">
+      <img src="photo1.jpg" alt="Memory 1"/>
+      <div class="img-placeholder"><span>🖼️</span>photo1.jpg</div>
+      <div class="photo-caption-tag">Our first memory 💕</div>
+    </div>
+ 
+    <div class="photo-frame">
+      <img src="photo2.jpg" alt="Memory 2"/>
+      <div class="img-placeholder"><span>🖼️</span>photo2.jpg</div>
+      <div class="photo-caption-tag">Together always 🌹</div>
+    </div>
+ 
+    <div class="photo-frame">
+      <img src="photo3.jpg" alt="Memory 3"/>
+      <div class="img-placeholder"><span>🖼️</span>photo3.jpg</div>
+      <div class="photo-caption-tag">A beautiful day ✨</div>
+    </div>
+ 
+    <div class="photo-frame">
+      <img src="photo4.jpg" alt="Memory 4"/>
+      <div class="img-placeholder"><span>🖼️</span>photo4.jpg</div>
+      <div class="photo-caption-tag">Pure joy 🌸</div>
+    </div>
+ 
+    <div class="photo-frame">
+      <img src="photo5.jpg" alt="Memory 5"/>
+      <div class="img-placeholder"><span>🖼️</span>photo5.jpg</div>
+      <div class="photo-caption-tag">Love like this 💛</div>
+    </div>
+ 
+    <div class="photo-frame">
+      <img src="photo6.jpg" alt="Memory 6"/>
+      <div class="img-placeholder"><span>🖼️</span>photo6.jpg</div>
+      <div class="photo-caption-tag">Forever & always 🥂</div>
+    </div>
+ 
   </div>
-
-  <p class="photo-caption">Every picture tells a thousand words of love 💕</p>
-
+ 
+  <p class="photo-bottom-caption">Every picture tells a thousand words of love 💕</p>
   <button class="btn-nav" style="margin-top:2.5rem"
     onclick="showPage(3, document.querySelectorAll('nav button')[2])">
     <span>Our Song &nbsp;→</span>
   </button>
 </section>
-
-<!-- ═══════════════════ PAGE 3 ═══════════════════ -->
+ 
+<!-- ═══ PAGE 3 ═══ -->
 <section id="page3" class="page">
-
   <p class="section-label">With All Our Love</p>
   <h2 class="section-title">A Letter to You</h2>
-
+ 
   <div class="love-card">
     <p class="love-message">
       Dear <strong>Maa &amp; Papa</strong>,<br><br>
@@ -487,32 +406,25 @@
       May every coming year be sweeter than the last. 🌹
     </p>
   </div>
-
-  <!-- Music Player -->
+ 
   <div class="music-wrap">
     <p class="music-title">🎵 &nbsp; Our Special Song</p>
     <div class="music-controls">
       <button class="play-btn" id="playBtn" onclick="togglePlay()">▶</button>
       <div class="music-info">
-        <div class="music-name" id="musicName">Upload your song below…</div>
+        <div class="music-name" id="musicName">Loading…</div>
         <div class="music-progress"><div class="music-bar" id="musicBar"></div></div>
         <div class="music-time" id="musicTime">0:00 / 0:00</div>
       </div>
     </div>
-    <label class="upload-song-label" for="songInput">
-      ♪ &nbsp; Choose a song from your device
-    </label>
-    <input type="file" id="songInput" class="hidden-input" accept="audio/*" onchange="loadSong(event)"/>
   </div>
-
-  <!-- Surprise -->
+ 
   <div class="surprise-wrap">
     <p class="surprise-hint">✨ &nbsp; A little something for you</p>
     <button class="surprise-btn" onclick="showSurprise()">🎉 Surprise!</button>
   </div>
-
 </section>
-
+ 
 <!-- SURPRISE OVERLAY -->
 <div class="overlay" id="surpriseOverlay">
   <div class="overlay-heart">❤️</div>
@@ -524,106 +436,99 @@
   </p>
   <button class="overlay-close" onclick="closeSurprise()">Close with Love ♡</button>
 </div>
-
-<!-- FOOTER -->
+ 
 <footer>Made with ❤️ &nbsp;for the most wonderful parents</footer>
-
-<!-- HIDDEN PHOTO INPUT -->
-<input type="file" id="photoInput" class="hidden-input" accept="image/*" onchange="loadPhoto(event)"/>
-
+ 
 <script>
-  /* ── AUDIO ── */
-  let audio = null, playing = false, raf = null;
-
-  function loadSong(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-    if (audio) { audio.pause(); cancelAnimationFrame(raf); }
-    audio = new Audio(URL.createObjectURL(file));
-    document.getElementById('musicName').textContent = file.name.replace(/\.[^.]+$/, '');
-    audio.addEventListener('ended', () => {
-      playing = false;
-      document.getElementById('playBtn').textContent = '▶';
+  /* ════════════════════════════════════════════════════════
+     ★  STEP 1 — REPLACE WITH YOUR GITHUB RAW URLs  ★
+     ════════════════════════════════════════════════════════
+     Photo format:
+       "https://raw.githubusercontent.com/YOUR_NAME/YOUR_REPO/main/photo1.jpg"
+ 
+     Song format:
+       "https://raw.githubusercontent.com/YOUR_NAME/YOUR_REPO/main/song.mp3"
+ 
+     If your HTML file and images are in the SAME repo folder,
+     you can just use the filename directly, e.g. "photo1.jpg"
+  ════════════════════════════════════════════════════════ */
+ 
+  const PHOTOS = [
+    { src: "photo1.jpg", caption: "Our first memory 💕"  },
+    { src: "photo2.jpg", caption: "Together always 🌹"   },
+    { src: "photo3.jpg", caption: "A beautiful day ✨"    },
+    { src: "photo4.jpg", caption: "Pure joy 🌸"           },
+    { src: "photo5.jpg", caption: "Love like this 💛"     },
+    { src: "photo6.jpg", caption: "Forever & always 🥂"  },
+  ];
+ 
+  const SONG_SRC  = "song.mp3";         // ← replace with your GitHub raw URL
+  const SONG_NAME = "Our Special Song"; // ← your song's display name
+ 
+  /* ── apply photos to DOM ── */
+  document.querySelectorAll('.photo-frame').forEach((frame, i) => {
+    if (!PHOTOS[i]) return;
+    const img = frame.querySelector('img');
+    const placeholder = frame.querySelector('.img-placeholder');
+    const tag = frame.querySelector('.photo-caption-tag');
+    img.src = PHOTOS[i].src;
+    tag.textContent = PHOTOS[i].caption;
+    img.addEventListener('error', () => {
+      img.style.display = 'none';
+      placeholder.style.display = 'flex';
     });
-    togglePlay();
-  }
-
+    img.addEventListener('load', () => {
+      img.style.display = 'block';
+      placeholder.style.display = 'none';
+    });
+  });
+ 
+  /* ── AUDIO ── */
+  const audio = new Audio(SONG_SRC);
+  audio.preload = "metadata";
+  let playing = false, raf = null;
+ 
+  document.getElementById('musicName').textContent = SONG_NAME;
+ 
+  audio.addEventListener('ended', () => {
+    playing = false;
+    document.getElementById('playBtn').textContent = '▶';
+  });
+  audio.addEventListener('error', () => {
+    document.getElementById('musicName').textContent = SONG_NAME + ' — add file to GitHub';
+  });
+  audio.addEventListener('loadedmetadata', () => {
+    document.getElementById('musicTime').textContent = '0:00 / ' + fmt(audio.duration);
+  });
+ 
   function togglePlay() {
-    if (!audio) { document.getElementById('songInput').click(); return; }
     if (playing) {
       audio.pause(); playing = false;
       document.getElementById('playBtn').textContent = '▶';
       cancelAnimationFrame(raf);
     } else {
-      audio.play(); playing = true;
+      audio.play().catch(() => {});
+      playing = true;
       document.getElementById('playBtn').textContent = '⏸';
       updateBar();
     }
   }
-
+ 
   function updateBar() {
-    if (!audio || !playing) return;
+    if (!playing) return;
     const pct = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
     document.getElementById('musicBar').style.width = pct + '%';
     document.getElementById('musicTime').textContent =
       fmt(audio.currentTime) + ' / ' + fmt(audio.duration || 0);
     raf = requestAnimationFrame(updateBar);
   }
-
+ 
   function fmt(s) {
-    const m = Math.floor(s / 60), sec = Math.floor(s % 60);
-    return m + ':' + String(sec).padStart(2, '0');
+    s = isNaN(s) || !isFinite(s) ? 0 : s;
+    return Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
   }
-
-  /* ── PHOTOS ── */
-  let activeSlot = null;
-  const SLOTS = 6;
-
-  function buildGrid() {
-    const g = document.getElementById('photoGrid');
-    for (let i = 0; i < SLOTS; i++) {
-      const slot = document.createElement('div');
-      slot.className = 'photo-slot';
-      slot.dataset.index = i;
-      slot.innerHTML = `
-        <div class="add-icon">📷</div>
-        <div class="add-text">Add Photo</div>
-        <button class="remove-btn" onclick="removePhoto(event, ${i})">✕</button>`;
-      slot.addEventListener('click', (e) => {
-        if (e.target.classList.contains('remove-btn')) return;
-        if (!slot.querySelector('img')) {
-          activeSlot = i;
-          document.getElementById('photoInput').click();
-        }
-      });
-      g.appendChild(slot);
-    }
-  }
-
-  function loadPhoto(e) {
-    const file = e.target.files[0];
-    if (!file || activeSlot === null) return;
-    const slot = document.querySelector(`.photo-slot[data-index="${activeSlot}"]`);
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      slot.innerHTML = `
-        <img src="${ev.target.result}" alt="memory"/>
-        <button class="remove-btn" onclick="removePhoto(event, ${activeSlot})">✕</button>`;
-    };
-    reader.readAsDataURL(file);
-    e.target.value = '';
-  }
-
-  function removePhoto(e, idx) {
-    e.stopPropagation();
-    const slot = document.querySelector(`.photo-slot[data-index="${idx}"]`);
-    slot.innerHTML = `
-      <div class="add-icon">📷</div>
-      <div class="add-text">Add Photo</div>
-      <button class="remove-btn" onclick="removePhoto(event, ${idx})">✕</button>`;
-  }
-
-  /* ── NAVIGATION ── */
+ 
+  /* ── NAV ── */
   function showPage(n, btn) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
@@ -631,7 +536,7 @@
     if (btn) btn.classList.add('active');
     window.scrollTo(0, 0);
   }
-
+ 
   /* ── PETALS ── */
   function spawnPetals() {
     const emojis = ['🌸','🌺','🌹','✨','💕','🍀'];
@@ -646,54 +551,42 @@
       container.appendChild(p);
     }
   }
-
+ 
   /* ── CONFETTI ── */
   const canvas = document.getElementById('confetti-canvas');
   const ctx = canvas.getContext('2d');
   let particles = [];
-
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  window.addEventListener('resize', resizeCanvas);
-  resizeCanvas();
-
+ 
+  function resizeCanvas() { canvas.width = innerWidth; canvas.height = innerHeight; }
+  window.addEventListener('resize', resizeCanvas); resizeCanvas();
+ 
   function spawnConfetti() {
     for (let i = 0; i < 160; i++) {
       particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * -canvas.height,
-        w: 6 + Math.random() * 9,
-        h: 4 + Math.random() * 7,
+        x: Math.random() * canvas.width, y: Math.random() * -canvas.height,
+        w: 6 + Math.random() * 9, h: 4 + Math.random() * 7,
         color: ['#c0405a','#c9954a','#f5d5db','#e8c070','#6b1a2a','#fff'][Math.floor(Math.random()*6)],
-        vx: -2 + Math.random() * 4,
-        vy: 2.5 + Math.random() * 3.5,
-        angle: Math.random() * 360,
-        spin: (-2 + Math.random() * 4),
-        alpha: 1
+        vx: -2 + Math.random() * 4, vy: 2.5 + Math.random() * 3.5,
+        angle: Math.random() * 360, spin: -2 + Math.random() * 4, alpha: 1
       });
     }
     animateConfetti();
   }
-
+ 
   function animateConfetti() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles = particles.filter(p => p.alpha > .01);
     particles.forEach(p => {
       p.x += p.vx; p.y += p.vy; p.angle += p.spin;
       if (p.y > canvas.height * .7) p.alpha -= .018;
-      ctx.save();
-      ctx.globalAlpha = p.alpha;
-      ctx.translate(p.x, p.y);
-      ctx.rotate(p.angle * Math.PI / 180);
-      ctx.fillStyle = p.color;
-      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.save(); ctx.globalAlpha = p.alpha;
+      ctx.translate(p.x, p.y); ctx.rotate(p.angle * Math.PI / 180);
+      ctx.fillStyle = p.color; ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
       ctx.restore();
     });
     if (particles.length) requestAnimationFrame(animateConfetti);
   }
-
+ 
   /* ── SURPRISE ── */
   function showSurprise() {
     document.getElementById('surpriseOverlay').classList.add('open');
@@ -701,12 +594,9 @@
   }
   function closeSurprise() {
     document.getElementById('surpriseOverlay').classList.remove('open');
-    particles = [];
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles = []; ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
-
-  /* ── INIT ── */
-  buildGrid();
+ 
   spawnPetals();
 </script>
 </body>
