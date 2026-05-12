@@ -320,7 +320,7 @@
     "Your smile makes every day brighter,<br>
     today we celebrate the wonderful person you are."
  </p>
-  <button class="btn-nav" onclick="showPage(2, document.querySelectorAll('nav button')[1])">
+  <button class="btn-nav" onclick="celebrateAndPlay()">
     <span>Lets Celebrate &nbsp;→</span>
   </button>
 </section>
@@ -535,6 +535,22 @@ Thank you for your love, your laughter, and your beautiful heart.<br><br>
     if (btn) btn.classList.add('active');
     window.scrollTo(0, 0);
   }
+  function celebrateAndPlay() {
+  // Same as before: page 2 pe jao
+  showPage(2, document.querySelectorAll('nav button')[1]);
+
+  // Agar song already play nahi ho raha, tab play karo
+  if (!playing) {
+    audio.play().then(() => {
+      playing = true;
+      document.getElementById('playBtn').textContent = '⏸';
+      updateBar();
+    }).catch(() => {
+      console.log("Autoplay blocked");
+    });
+  }
+}
+  
  
   /* ── PETALS ── */
   function spawnPetals() {
