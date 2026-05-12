@@ -385,7 +385,7 @@
   <p class="photo-bottom-caption">Every picture tells a thousand words of love 💕</p>
   <button class="btn-nav" style="margin-top:2.5rem"
     onclick="showPage(3, document.querySelectorAll('nav button')[2])">
-    <span>Our Song &nbsp;→</span>
+    <span> Play Another Song &nbsp;→</span>
   </button>
 </section>
  
@@ -461,7 +461,10 @@ Thank you for your love, your laughter, and your beautiful heart.<br><br>
     { src: "priya6.jpg", caption: "Forever & always 🥂"  },
   ];
  
-  const SONG_SRC  = "priya.mp3";         // ← replace with your GitHub raw URL
+  const SONG_SRC  = "party.mp3";
+  const CELEBRATE_SONG = "ladki.mp3";
+const celebrateAudio = new Audio(CELEBRATE_SONG);
+                                                 // ← replace with your GitHub raw URL
   const SONG_NAME = "Play the Song"; // ← your song's display name
  
   /* ── apply photos to DOM ── */
@@ -536,19 +539,14 @@ Thank you for your love, your laughter, and your beautiful heart.<br><br>
     window.scrollTo(0, 0);
   }
   function celebrateAndPlay() {
-  // Same as before: page 2 pe jao
+  // Page 2 kholo
   showPage(2, document.querySelectorAll('nav button')[1]);
 
-  // Agar song already play nahi ho raha, tab play karo
-  if (!playing) {
-    audio.play().then(() => {
-      playing = true;
-      document.getElementById('playBtn').textContent = '⏸';
-      updateBar();
-    }).catch(() => {
-      console.log("Autoplay blocked");
-    });
-  }
+  // Celebrate wala song play karo
+  celebrateAudio.play().catch(() => {
+    console.log("Autoplay blocked");
+  });
+}
 }
   
  
