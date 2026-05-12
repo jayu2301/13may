@@ -385,7 +385,7 @@
   <p class="photo-bottom-caption">Every picture tells a thousand words of love 💕</p>
   <button class="btn-nav" style="margin-top:2.5rem"
     onclick="showPage(3, document.querySelectorAll('nav button')[2])">
-    <span> Play Another Song &nbsp;→</span>
+    <span> Go Next &nbsp;→</span>
   </button>
 </section>
  
@@ -436,7 +436,7 @@ Thank you for your love, your laughter, and your beautiful heart.<br><br>
   <button class="overlay-close" onclick="closeSurprise()">Close with Love ♡</button>
 </div>
  
-<footer>Made with ❤️ &nbsp;for my wonderful sister by us Palak and Pari </footer>
+<footer>Made with ❤️ &nbsp;for my wonderful sister by us (Palak and Pari) </footer>
  
 <script>
   /* ════════════════════════════════════════════════════════
@@ -504,17 +504,23 @@ const celebrateAudio = new Audio(CELEBRATE_SONG);
   });
  
   function togglePlay() {
-    if (playing) {
-      audio.pause(); playing = false;
-      document.getElementById('playBtn').textContent = '▶';
-      cancelAnimationFrame(raf);
-    } else {
-      audio.play().catch(() => {});
-      playing = true;
-      document.getElementById('playBtn').textContent = '⏸';
-      updateBar();
-    }
+  if (playing) {
+    audio.pause();
+    playing = false;
+    document.getElementById('playBtn').textContent = '▶';
+    cancelAnimationFrame(raf);
+  } else {
+    // Pehla wala song band karo
+    celebrateAudio.pause();
+    celebrateAudio.currentTime = 0;
+
+    // Dusra song chalao
+    audio.play().catch(() => {});
+    playing = true;
+    document.getElementById('playBtn').textContent = '⏸';
+    updateBar();
   }
+}
  
   function updateBar() {
     if (!playing) return;
